@@ -1,11 +1,12 @@
-import mongoose, { model } from "mongoose"
+// import mongoose, { model } from "mongoose"
+const { mongoose, model } = require('mongoose')
 
 const userModel = mongoose.Schema(
     {
         name: { type: String, required: true },
-        email: { type: String, required: true },
+        email: { type: String, required: true, unique: true },
         password: { type: String, required: true },
-        pic: { type: String, required: true, default: process.env.PUBLIC_URL + ("/imgs/avatar.png") }
+        pic: { type: String, default: process.env.PUBLIC_URL + ("/imgs/avatar.png") }
     },
     {
         timeStamp: true
