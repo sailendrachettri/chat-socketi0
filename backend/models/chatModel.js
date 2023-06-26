@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const chatModel = mongoose.Schema(
     {
@@ -6,6 +6,7 @@ const chatModel = mongoose.Schema(
         isGroupChat: { type: Boolean, default: false },
         users: [{
 
+            type: mongoose.Schema.Types.ObjectId,
             ref: "User",
 
         }],

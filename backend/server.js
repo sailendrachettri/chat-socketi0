@@ -3,12 +3,13 @@ const dotenv = require('dotenv')
 const { chats } = require('./data')
 const conncetDB = require('./config/db')
 const userRoutes = require('./routes/userRoutes')
+const chatRoutes = require('./routes/chatRoutes')
 const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const cors = require("cors");
 
 
 const app = express()
-app.use(cors());
+app.use(cors())
 dotenv.config()
 conncetDB()
 
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/user/', userRoutes)
+app.use('/api/chat', chatRoutes)
 app.use(notFound)
 app.use(errorHandler)
 
